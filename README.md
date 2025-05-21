@@ -3,9 +3,9 @@
 ## TODO
 
 - [ ] Install required packages
-  - [ ] Install and configure tailwind
-    - [ ] configure dark and light modes
-  - [ ] Install tanstack (query, router)
+  - [*] Install and configure tailwind
+    - [*] configure dark and light modes
+  - [*] Install tanstack (query, router)
   - [ ] Configure router
   - [ ] Congigure tanstack-query + TMDB API
     - [ ] Configure api caching and revalidation

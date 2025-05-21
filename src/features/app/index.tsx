@@ -1,5 +1,7 @@
-const App = () => {
-  return <div>hello, world</div>;
-};
+import ColorSchemeToggler from './color-scheme-toggler'
 
-export default App;
+const App = () => {
+  return <ColorSchemeToggler />
+}
+
+export default App
