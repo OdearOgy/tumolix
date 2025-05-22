@@ -2,13 +2,13 @@
 
 ## TODO
 
-- [ ] Install required packages
+- [*] Install required packages
   - [*] Install and configure tailwind
     - [*] configure dark and light modes
   - [*] Install tanstack (query, router)
-  - [ ] Configure router
-  - [ ] Congigure tanstack-query + TMDB API
-    - [ ] Configure api caching and revalidation
+  - [*] Configure router
+  - [*] Congigure tanstack-query + TMDB API
+    - [*] Configure api caching and revalidation
 - [ ] Create app UI
   - [ ] create home page
     - [ ] search bar
