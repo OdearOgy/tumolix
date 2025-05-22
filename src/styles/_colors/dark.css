@@ -1,0 +1,49 @@
+html[data-theme='dark'] {
+  --color-primary-50: hsl(222.25, 68.93%, 20.2%);
+  --color-primary-100: hsl(222.16, 68.94%, 31.57%);
+  --color-primary-200: hsl(222.31, 69.03%, 44.31%);
+  --color-primary-300: hsl(222.22, 79.75%, 53.53%);
+  --color-primary-400: hsl(222.12, 99.05%, 58.82%);
+  --color-primary-500: hsl(222.17, 98.57%, 72.55%);
+  --color-primary-600: hsl(222.42, 100%, 80.59%);
+  --color-primary-700: hsl(222.61, 100%, 86.47%);
+  --color-primary-800: hsl(222.13, 100%, 90.78%);
+  --color-primary-900: hsl(223.85, 100%, 94.9%);
+  --color-primary-950: hsl(225, 100%, 98.43%);
+
+  --color-danger-50: hsl(0, 100%, 17.45%);
+  --color-danger-100: hsl(0, 100%, 26.08%);
+  --color-danger-200: hsl(0, 77.89%, 39.02%);
+  --color-danger-300: hsl(0, 50.39%, 49.8%);
+  --color-danger-400: hsl(0, 50.24%, 59.8%);
+  --color-danger-500: hsl(0, 49.68%, 69.61%);
+  --color-danger-600: hsl(0, 49.55%, 78.24%);
+  --color-danger-700: hsl(0, 50.65%, 84.9%);
+  --color-danger-800: hsl(0, 50%, 89.8%);
+  --color-danger-900: hsl(0, 51.72%, 94.31%);
+  --color-danger-950: hsl(0, 55.56%, 98.24%);
+
+  --color-warning-50: hsl(48.95, 67.86%, 10.98%);
+  --color-warning-100: hsl(49.18, 70.11%, 17.06%);
+  --color-warning-200: hsl(48.71, 69.11%, 24.12%);
+  --color-warning-300: hsl(48.93, 69.13%, 29.22%);
+  --color-warning-400: hsl(49.44, 69.06%, 35.49%);
+  --color-warning-500: hsl(48.95, 69.09%, 43.14%);
+  --color-warning-600: hsl(49.15, 78.99%, 53.33%);
+  --color-warning-700: hsl(49.3, 78.89%, 60.98%);
+  --color-warning-800: hsl(49.04, 78.79%, 74.12%);
+  --color-warning-900: hsl(49.66, 78.38%, 85.49%);
+  --color-warning-950: hsl(49.41, 80.95%, 95.88%);
+
+  --color-neutral-50: hsl(226.67, 42.86%, 4.12%);
+  --color-neutral-100: hsl(231.43, 5.34%, 25.69%);
+  --color-neutral-200: hsl(230, 3.3%, 35.69%);
+  --color-neutral-300: hsl(228, 2.28%, 42.94%);
+  --color-neutral-400: hsl(225, 1.64%, 52.16%);
+  --color-neutral-500: hsl(220, 1.59%, 62.94%);
+  --color-neutral-600: hsl(220, 2.19%, 73.14%);
+  --color-neutral-700: hsl(240, 2.08%, 81.18%);
+  --color-neutral-800: hsl(240, 1.54%, 87.25%);
+  --color-neutral-900: hsl(240, 2.7%, 92.75%);
+  --color-neutral-950: hsl(0, 0%, 97.65%);
+}
