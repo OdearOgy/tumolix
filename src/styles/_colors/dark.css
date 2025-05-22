@@ -1,4 +1,4 @@
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --color-primary-50: hsl(220, 90%, 10%);
   --color-primary-100: hsl(220, 90%, 19%);
   --color-primary-200: hsl(220, 90%, 28%);
