@@ -9,6 +9,7 @@
   - [*] Configure router
   - [*] Congigure tanstack-query + TMDB API
     - [*] Configure api caching and revalidation
+  - [ ] Install headless UI and configure reuasable components
 - [ ] Create app UI
   - [ ] create home page
     - [ ] search bar
