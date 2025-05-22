@@ -1,3 +1,5 @@
+@reference '../../styles/index.css';
+
 .cover {
   @apply flex flex-col p-5 min-h-screen;
 }
