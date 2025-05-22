@@ -1,7 +1,7 @@
 import { Button as AccessibleButton } from '@headlessui/react'
 import type { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
-import Cluster from '../cluster'
 import { ArrowPathIcon } from '../icons'
+import { Cluster } from '../layouts'
 import type { Size, Variant } from '../types'
 import styles from './index.module.css'
 

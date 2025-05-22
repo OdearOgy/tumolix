@@ -1,3 +1,1 @@
-import Cover from './cover'
-
-export { Cover }
+export { default as Button } from './button'

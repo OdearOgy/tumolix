@@ -1,4 +1,4 @@
-@reference '../../styles/index.css';
+@import '../../variables-reference.module.css';
 
 .cover {
   @apply flex flex-col p-5 min-h-screen;

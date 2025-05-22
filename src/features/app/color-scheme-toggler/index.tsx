@@ -1,5 +1,7 @@
 // TODO: Unit test
 import { useCallback, useLayoutEffect, useState, type FunctionComponent } from 'react'
+import { Button } from '../../../components'
+import { ArrowPathIcon } from '../../../components/icons'
 
 const KEY = 'app::color_scheme'
 
@@ -38,7 +40,14 @@ const ColorSchemeToggler: FunctionComponent = () => {
     setColorScheme(updated)
   }, [theme])
 
-  return <button onClick={handleToggle}>{theme} mode</button>
+  return (
+    <Button
+      onClick={handleToggle}
+      prefixIcon={<ArrowPathIcon className="animate-spin" size="large" />}
+    >
+      {theme} mode
+    </Button>
+  )
 }
 
 export default ColorSchemeToggler

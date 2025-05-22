@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { type FunctionComponent } from 'react'
-import { Cover } from '../components'
+import { Cover } from '../components/layouts'
 
 const Layout: FunctionComponent = () => {
   return (
