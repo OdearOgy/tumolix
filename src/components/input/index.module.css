@@ -1,0 +1,15 @@
+@import '../variables-reference.module.css';
+
+.field {
+  @apply block;
+
+  .label {
+    @apply block text-neutral-900;
+  }
+  .input {
+    @apply mt-1 block w-full;
+    @apply rounded-md border-neutral-300 shadow-sm;
+    @apply focus:border-primary-300 focus:ring-1 focus:ring-primary-600;
+    @apply hover:border-primary-500;
+  }
+}
