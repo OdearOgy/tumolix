@@ -1,0 +1,18 @@
+@import '../../variables-reference.module.css';
+.wrapper {
+  @apply flex items-center rounded;
+  @apply overflow-hidden h-15 w-15 md:w-65;
+
+  img {
+    @apply h-full w-full;
+  }
+
+  .desktop {
+    @apply object-cover object-center hidden md:block;
+  }
+
+  .mobile {
+    @apply block md:hidden;
+    @apply object-contain;
+  }
+}
