@@ -1,6 +1,6 @@
 // TODO: Unit test
-import { Button } from '@headlessui/react'
 import { useCallback, useLayoutEffect, useState, type FunctionComponent } from 'react'
+import { Button } from '../../../../components'
 import { MoonIcon, SunIcon } from '../../../../components/icons'
 
 const KEY = 'app::color_scheme'
@@ -45,8 +45,8 @@ const ColorSchemeToggler: FunctionComponent = () => {
     <Button
       onClick={handleToggle}
       aria-label="Toggle theme"
-      variant="warning"
       size="large"
+      variant="warning"
       prefixIcon={colorScheme === 'dark' ? <SunIcon /> : <MoonIcon />}
     />
   )
