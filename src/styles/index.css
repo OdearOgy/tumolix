@@ -11,3 +11,7 @@ html {
   @apply selection:bg-primary-500;
   @apply selection:text-neutral-50 dark:selection:text-neutral-950;
 }
+
+html * {
+  transition: inherit;
+}

@@ -45,7 +45,7 @@ const ColorSchemeToggler: FunctionComponent = () => {
     <Button
       onClick={handleToggle}
       aria-label="Toggle theme"
-      variant="neutral"
+      variant="warning"
       size="large"
       prefixIcon={colorScheme === 'dark' ? <SunIcon /> : <MoonIcon />}
     />

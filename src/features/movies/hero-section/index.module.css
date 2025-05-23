@@ -1,0 +1,39 @@
+@reference '../../../styles/index.css';
+
+.skeleton,
+.error {
+  @apply flex items-center justify-center;
+  @apply prose prose-invert text-center mx-auto;
+  @apply relative w-full h-[90dvh] overflow-hidden;
+}
+
+.hero {
+  @apply relative w-full h-[90dvh] overflow-hidden;
+
+  & > * {
+    @apply absolute inset-0 w-full h-full z-0;
+  }
+
+  .fallback {
+    img {
+      @apply w-full h-full object-cover object-center;
+    }
+  }
+
+  .video {
+    --tw-duration: 2.5s;
+    @apply object-top w-screen h-screen -mt-20 opacity-0;
+
+    &.loaded {
+      @apply opacity-100;
+      @apply transition-opacity;
+    }
+  }
+
+  .footer {
+    @apply bg-primary-700/70 dark:bg-primary-200/70 justify-end p-15 z-2 px-20;
+    & > div {
+      @apply prose prose-invert;
+    }
+  }
+}

@@ -1,11 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchPopularMovies } from './api'
+import { fetchHeroMovie, fetchMovies } from './api'
 
 const MOVIES_KEY = 'MOVIES'
+const HERO_MOVIE_KEY = 'HERO_MOVIE'
 
 export const useMoviesQuery = (search: string) => {
   return useQuery({
     queryKey: [MOVIES_KEY, search],
-    queryFn: () => fetchPopularMovies(),
+    queryFn: () => fetchMovies(),
+  })
+}
+
+export const useHeroMovie = () => {
+  return useQuery({
+    queryKey: [HERO_MOVIE_KEY],
+    queryFn: () => fetchHeroMovie(),
   })
 }

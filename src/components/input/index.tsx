@@ -23,7 +23,6 @@ const Input: FunctionComponent<{
         placeholder={placeholder}
         hidden={hidden}
       />
-      {/* {errors ? <span className={styles.helpText}>{errors.join(', ')}</span> : null} */}
     </Stack>
   )
 }

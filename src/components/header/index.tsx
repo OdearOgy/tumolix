@@ -5,15 +5,13 @@ import { Cluster } from '../layouts'
 import ColorSchemeToggler from './color-scheme-toggler'
 import styles from './index.module.css'
 import Logo from './logo'
-import Navigation from './navigation'
 
 const Header: FunctionComponent = () => {
   return (
     <Cluster className={styles.header}>
-      <Link to={APP_ROUTES.HOME}>
+      <Link to={APP_ROUTES.HOME} viewTransition>
         <Logo />
       </Link>
-      <Navigation />
       <ColorSchemeToggler />
     </Cluster>
   )

@@ -1,23 +1,29 @@
 import { Stack } from '../../components/layouts'
-import { useMoviesQuery } from './_queries'
+import HeroSection from './hero-section'
 
 const Movies = () => {
-  const { data, isError, isPending, isSuccess } = useMoviesQuery('')
+  // const { data, isError, isPending, isSuccess } = useMoviesQuery('')
 
-  if (isPending) {
-    return 'loading ...'
-  }
+  // if (isPending) {
+  //   return 'loading ...'
+  // }
 
-  if (isError) {
-    return 'some random error'
-  }
+  // if (isError) {
+  //   return 'some random error'
+  // }
 
-  return isSuccess && data?.results?.length ? (
+  return (
     <Stack>
-      <div>{JSON.stringify(data.results, null, 4)}</div>
+      <HeroSection />
+
+      {/* {isSuccess && data?.results?.length ? (
+        <Stack>
+          <div>{JSON.stringify(data.results, null, 4)}</div>
+        </Stack>
+      ) : (
+        'no data found'
+      )} */}
     </Stack>
-  ) : (
-    'no data found'
   )
 }
 
