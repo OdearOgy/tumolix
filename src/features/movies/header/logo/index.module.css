@@ -1,4 +1,4 @@
-@import '../../variables-reference.module.css';
+@reference '../../../../styles/index.css';
 
 .wrapper {
   @apply flex items-center rounded;

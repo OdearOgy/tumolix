@@ -1,4 +1,4 @@
-@import '../variables-reference.module.css';
+@reference '../../../styles/index.css';
 
 .header {
   @apply fixed top-0 z-50 w-full justify-between items-center gap-10 py-2 px-8;

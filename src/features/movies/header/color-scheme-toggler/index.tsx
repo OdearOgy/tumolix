@@ -1,7 +1,7 @@
 // TODO: Unit test
+import { Button } from '@headlessui/react'
 import { useCallback, useLayoutEffect, useState, type FunctionComponent } from 'react'
-import Button from '../../button'
-import { MoonIcon, SunIcon } from '../../icons'
+import { MoonIcon, SunIcon } from '../../../../components/icons'
 
 const KEY = 'app::color_scheme'
 
