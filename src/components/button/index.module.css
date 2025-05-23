@@ -1,39 +1,35 @@
 @import '../variables-reference.module.css';
 
 .btn {
-  @apply border rounded text-sm py-2 min-h-8;
+  @apply border rounded text-sm py-2 min-h-8 cursor-pointer;
   @apply text-neutral-50 dark:text-neutral-950;
 
   &.neutral {
     @apply bg-neutral-600 dark:bg-neutral-400 border-neutral-500;
-
-    &:hover {
-      @apply bg-neutral-700 dark:bg-neutral-300;
-    }
+    @apply hover:bg-neutral-700 dark:hover:bg-neutral-300;
+    @apply focus:bg-neutral-700 dark:focus:bg-neutral-300;
+    @apply active:bg-neutral-600 dark:active:bg-neutral-400;
   }
 
   &.danger {
     @apply bg-danger-600 dark:bg-danger-400 border-danger-500;
-
-    &:hover {
-      @apply bg-danger-700 dark:bg-danger-300;
-    }
+    @apply hover:bg-danger-700 dark:hover:bg-danger-300;
+    @apply focus:bg-danger-700 dark:focus:bg-danger-300;
+    @apply active:bg-danger-600 dark:active:bg-danger-400;
   }
 
   &.primary {
     @apply bg-primary-600 dark:bg-primary-400 border-primary-500;
-
-    &:hover {
-      @apply bg-primary-700 dark:bg-primary-300;
-    }
+    @apply hover:bg-primary-700 dark:hover:bg-primary-300;
+    @apply focus:bg-primary-700 dark:focus:bg-primary-300;
+    @apply active:bg-primary-600 dark:active:bg-primary-400;
   }
 
   &.warning {
     @apply bg-warning-500 dark:bg-warning-400 border-warning-500;
-
-    &:hover {
-      @apply bg-warning-600 dark:bg-warning-300;
-    }
+    @apply hover:bg-warning-600 dark:hover:bg-warning-300;
+    @apply focus:bg-warning-600 dark:focus:bg-warning-300;
+    @apply active:bg-warning-500 dark:active:bg-warning-400;
   }
 
   &[disabled],
