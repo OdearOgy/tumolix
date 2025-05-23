@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 import mobileLogo from '/assets/icon.png'
-import logo from '/assets/logo.png'
+import logo from '/assets/logo-1.png'
 
 const Logo = () => {
   return (

@@ -1,6 +1,7 @@
 @import '../variables-reference.module.css';
 
 .header {
-  @apply bg-primary-600 dark:bg-primary-50 w-full p-2 justify-center items-center gap-10;
+  @apply bg-primary-700 dark:bg-primary-300 w-full p-2 justify-between items-center gap-10;
+  @apply px-8;
   @apply text-neutral-50 dark:text-neutral-950;
 }

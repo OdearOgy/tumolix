@@ -23,7 +23,7 @@ const Button: FunctionComponent<
   onClick,
   prefixIcon,
   size = 'medium',
-  variant = 'warning',
+  variant = 'neutral',
 }) => {
   const btnCls = `${styles.btn} ${styles[variant]} ${className}`
 

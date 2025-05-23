@@ -1,16 +1,16 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { type FunctionComponent } from 'react'
 import { Header } from '../components'
-import { Cluster, Cover } from '../components/layouts'
+import { Cover, Stack } from '../components/layouts'
 
 const Layout: FunctionComponent = () => {
   return (
-    <Cluster>
+    <Stack className="gap-2">
       <Header />
-      <Cover className="p-1">
+      <Cover>
         <Outlet />
       </Cover>
-    </Cluster>
+    </Stack>
   )
 }
 

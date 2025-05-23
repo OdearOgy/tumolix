@@ -1,5 +1,5 @@
 @import '../../variables-reference.module.css';
 
 .cover {
-  @apply flex flex-col p-5 min-h-screen;
+  @apply flex flex-col px-5 py-5 min-h-screen;
 }
