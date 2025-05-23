@@ -5,10 +5,9 @@
   strategy: base;
 }
 
-body {
-  @apply text-neutral-950 bg-neutral-200 dark:bg-neutral-100;
+html {
   @apply transition-colors;
-
+  @apply text-neutral-950 bg-neutral-200 dark:bg-primary-300;
   @apply selection:bg-primary-500;
   @apply selection:text-neutral-50 dark:selection:text-neutral-950;
 }
