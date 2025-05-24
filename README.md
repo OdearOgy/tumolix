@@ -13,7 +13,7 @@
 - [ ] Create app UI
   - [ ] create home page
     - [ ] search bar
-    - [ ] popular movies section
+    - [*] popular movies section
     - [ ] genre filter (dropdown/typeahead)
   - [ ] list page
     - [ ] list virtualization + reuasable feature for favorites and search

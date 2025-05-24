@@ -1,103 +1,10 @@
 @import './_colors/index.css';
+@import './animations.css';
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms' {
   strategy: base;
 }
-
-/* Slide Left Transition */
-html:active-view-transition-type(slide-left) {
-  &::view-transition-old(movies) {
-    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-left;
-  }
-  &::view-transition-new(movies) {
-    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-left;
-  }
-}
-
-@keyframes slide-out-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Slide Right Transition */
-html:active-view-transition-type(slide-right) {
-  &::view-transition-old(movies) {
-    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-right;
-  }
-  &::view-transition-new(movies) {
-    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-right;
-  }
-}
-
-@keyframes slide-out-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Warp/Rotate Transition */
-html:active-view-transition-type(warp) {
-  &::view-transition-old(movies) {
-    animation: 400ms ease-out both warp-out;
-  }
-
-  &::view-transition-new(movies) {
-    animation: 400ms ease-out both warp-in;
-  }
-}
-
-@keyframes warp-out {
-  from {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-    transform: scale(1) rotate(0deg);
-  }
-  to {
-    opacity: 0;
-    filter: blur(15px) brightness(1.8);
-    transform: scale(1.1) rotate(90deg);
-  }
-}
-
-@keyframes warp-in {
-  from {
-    opacity: 0;
-    filter: blur(15px) brightness(1.8);
-    transform: scale(0.9) rotate(-45deg);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-    transform: scale(1) rotate(0deg);
-  }
-}
-
 html {
   @apply transition-colors;
   @apply text-neutral-950 bg-neutral-200 dark:bg-primary-300;
@@ -107,4 +14,39 @@ html {
 
 html * {
   transition: inherit;
+}
+
+@theme static {
+  --tw-prose-headings: red;
+  --tw-prose-invert-headings: red;
+
+  --color-primary-700: var(--color-primary-50);
+}
+
+html:active-view-transition-type(slide-left) {
+  &::view-transition-old(movies) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-left;
+  }
+  &::view-transition-new(movies) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-left;
+  }
+}
+
+html:active-view-transition-type(slide-right) {
+  &::view-transition-old(movies) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-right;
+  }
+  &::view-transition-new(movies) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-right;
+  }
+}
+
+html:active-view-transition-type(warp) {
+  &::view-transition-old(movies) {
+    animation: 400ms ease-out both warp-out;
+  }
+
+  &::view-transition-new(movies) {
+    animation: 400ms ease-out both warp-in;
+  }
 }

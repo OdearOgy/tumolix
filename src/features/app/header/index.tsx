@@ -33,15 +33,15 @@ const Header: FunctionComponent = () => {
   const headerCls = `${styles.header} ${scrolled ? styles.scrolled : ''}`
 
   return (
-    <>
+    <header>
+      <div ref={headerRef}></div>
       <Cluster className={headerCls}>
-        <Link to={APP_ROUTES.HOME}>
+        <Link to={APP_ROUTES.HOME} viewTransition={{ types: ['slide-right'] }}>
           <Logo />
         </Link>
         <ColorSchemeToggler />
       </Cluster>
-      <div ref={headerRef}></div>
-    </>
+    </header>
   )
 }
 

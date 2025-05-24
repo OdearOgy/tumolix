@@ -1,4 +1,5 @@
 import { useState, type FunctionComponent } from 'react'
+import { BackdropSize } from 'tmdb-ts'
 import { Stack } from '../../../components/layouts'
 import {
   TMDB_IMAGE_URL_PREFIX,
@@ -15,7 +16,9 @@ const MovieTrailer: FunctionComponent<{
   const { title, trailer, background, description } = data
 
   const url = `${YOUTUBE_EMBED_PREFIX}/${trailer?.key}?playlist=${trailer?.key}&${YOUTUBE_EMBED_OPTIONS}`
-  const posterUrl = background ? `${TMDB_IMAGE_URL_PREFIX}/original/${background}` : undefined
+  const posterUrl = background
+    ? `${TMDB_IMAGE_URL_PREFIX}/${BackdropSize.W780}/${background}`
+    : undefined
 
   return (
     <div className={styles.hero}>
@@ -24,7 +27,7 @@ const MovieTrailer: FunctionComponent<{
           <img src={posterUrl} alt={`${title}'s poster`} loading="eager" />
         </div>
       )}
-      {trailer?.key && (
+      {/* {trailer?.key && (
         <iframe
           src={url}
           className={`${styles.video} ${videoLoaded && styles.loaded}`}
@@ -34,7 +37,7 @@ const MovieTrailer: FunctionComponent<{
           loading="lazy"
           onLoad={() => setVideoLoaded(true)}
         />
-      )}
+      )} */}
 
       <Stack className={styles.footer}>
         <Stack>

@@ -16,7 +16,7 @@ export const router = createRouter({
         const fromIndex = fromLocation.state.__TSR_index
         const toIndex = toLocation.state.__TSR_index
 
-        direction = fromIndex > toIndex ? 'right' : 'left'
+        direction = toIndex > fromIndex ? 'left' : 'right'
       }
 
       return [`slide-${direction}`]
