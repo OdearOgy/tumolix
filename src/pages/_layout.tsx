@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { type FunctionComponent } from 'react'
 import { Cover } from '../components/layouts'
-import Header from '../features/movies/header'
+import Header from '../features/app/header'
 
 const Layout: FunctionComponent = () => {
   return (

@@ -21,17 +21,18 @@
   }
 
   .video {
-    --tw-duration: 2.5s;
-    @apply object-top w-screen h-screen -mt-20 opacity-0;
+    --tw-duration: 700ms;
+    @apply object-top w-screen h-screen -mt-20;
+    @apply opacity-0 transition-opacity;
 
     &.loaded {
       @apply opacity-100;
-      @apply transition-opacity;
     }
   }
 
   .footer {
     @apply bg-primary-700/70 dark:bg-primary-200/70 justify-end p-15 z-2 px-20;
+
     & > div {
       @apply prose prose-invert;
     }

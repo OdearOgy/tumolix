@@ -19,19 +19,19 @@ const MovieTrailer: FunctionComponent<{
 
   return (
     <div className={styles.hero}>
-      {posterUrl && !videoLoaded && (
+      {posterUrl && (
         <div className={styles.fallback}>
-          <img src={posterUrl} alt={`${title}'s poster`} />
+          <img src={posterUrl} alt={`${title}'s poster`} loading="eager" />
         </div>
       )}
-      {data && trailer?.key && (
+      {trailer?.key && (
         <iframe
           src={url}
           className={`${styles.video} ${videoLoaded && styles.loaded}`}
           title={title}
           allow="autoplay; encrypted-media"
           referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
+          loading="lazy"
           onLoad={() => setVideoLoaded(true)}
         />
       )}
