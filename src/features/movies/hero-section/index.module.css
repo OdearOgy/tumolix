@@ -4,11 +4,11 @@
 .error {
   @apply flex items-center justify-center;
   @apply prose prose-invert text-center mx-auto;
-  @apply relative w-full h-[90dvh] overflow-hidden;
+  @apply relative w-full h-[85dvh] overflow-hidden;
 }
 
 .hero {
-  @apply relative w-full h-[90dvh] overflow-hidden;
+  @apply relative w-full h-[85dvh] overflow-hidden;
 
   & > * {
     @apply absolute inset-0 w-full h-full z-0;
