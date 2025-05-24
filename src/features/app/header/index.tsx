@@ -16,8 +16,8 @@ const Header: FunctionComponent = () => {
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setScrolled(!entry.isIntersecting)
+      (entries) => {
+        setScrolled(!entries[0].isIntersecting)
       },
       {
         root: null,
@@ -35,7 +35,7 @@ const Header: FunctionComponent = () => {
   return (
     <>
       <Cluster className={headerCls}>
-        <Link to={APP_ROUTES.HOME} viewTransition>
+        <Link to={APP_ROUTES.HOME}>
           <Logo />
         </Link>
         <ColorSchemeToggler />

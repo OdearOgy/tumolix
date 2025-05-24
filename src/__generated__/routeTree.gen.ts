@@ -11,17 +11,10 @@
 // Import Routes
 
 import { Route as rootRoute } from './../pages/__root'
-import { Route as MoviesImport } from './../pages/movies'
 import { Route as LayoutImport } from './../pages/_layout'
 import { Route as IndexImport } from './../pages/index'
 
 // Create/Update Routes
-
-const MoviesRoute = MoviesImport.update({
-  id: '/movies',
-  path: '/movies',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const LayoutRoute = LayoutImport.update({
   id: '/_layout',
@@ -52,13 +45,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    '/movies': {
-      id: '/movies'
-      path: '/movies'
-      fullPath: '/movies'
-      preLoaderRoute: typeof MoviesImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -67,41 +53,36 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
-  '/movies': typeof MoviesRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
-  '/movies': typeof MoviesRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layout': typeof LayoutRoute
-  '/movies': typeof MoviesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/movies'
+  fullPaths: '/' | ''
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/movies'
-  id: '__root__' | '/' | '/_layout' | '/movies'
+  to: '/' | ''
+  id: '__root__' | '/' | '/_layout'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LayoutRoute: typeof LayoutRoute
-  MoviesRoute: typeof MoviesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LayoutRoute: LayoutRoute,
-  MoviesRoute: MoviesRoute,
 }
 
 export const routeTree = rootRoute
@@ -115,8 +96,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_layout",
-        "/movies"
+        "/_layout"
       ]
     },
     "/": {
@@ -124,9 +104,6 @@ export const routeTree = rootRoute
     },
     "/_layout": {
       "filePath": "_layout.tsx"
-    },
-    "/movies": {
-      "filePath": "movies.tsx"
     }
   }
 }
