@@ -1,18 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { createRouter, RouterProvider } from '@tanstack/react-router'
-import { routeTree } from '../../__generated__/routeTree.gen'
-import ColorSchemeToggler from './color-scheme-toggler'
-
-const router = createRouter({
-  routeTree,
-})
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './router'
 
 const queryClient = new QueryClient()
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ColorSchemeToggler />
       <RouterProvider router={router}></RouterProvider>
     </QueryClientProvider>
   )

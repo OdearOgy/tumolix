@@ -13,6 +13,9 @@
 import { Route as rootRoute } from './../pages/__root'
 import { Route as LayoutImport } from './../pages/_layout'
 import { Route as IndexImport } from './../pages/index'
+import { Route as MoviesIndexImport } from './../pages/movies/index'
+import { Route as MoviesCategoryImport } from './../pages/movies/$category'
+import { Route as MovieIdImport } from './../pages/movie.$id'
 
 // Create/Update Routes
 
@@ -24,6 +27,24 @@ const LayoutRoute = LayoutImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MoviesIndexRoute = MoviesIndexImport.update({
+  id: '/movies/',
+  path: '/movies/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MoviesCategoryRoute = MoviesCategoryImport.update({
+  id: '/movies/$category',
+  path: '/movies/$category',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MovieIdRoute = MovieIdImport.update({
+  id: '/movie/$id',
+  path: '/movie/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -45,6 +66,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
+    '/movie/$id': {
+      id: '/movie/$id'
+      path: '/movie/$id'
+      fullPath: '/movie/$id'
+      preLoaderRoute: typeof MovieIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/movies/$category': {
+      id: '/movies/$category'
+      path: '/movies/$category'
+      fullPath: '/movies/$category'
+      preLoaderRoute: typeof MoviesCategoryImport
+      parentRoute: typeof rootRoute
+    }
+    '/movies/': {
+      id: '/movies/'
+      path: '/movies'
+      fullPath: '/movies'
+      preLoaderRoute: typeof MoviesIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -53,36 +95,57 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/movies/$category': typeof MoviesCategoryRoute
+  '/movies': typeof MoviesIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/movies/$category': typeof MoviesCategoryRoute
+  '/movies': typeof MoviesIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layout': typeof LayoutRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/movies/$category': typeof MoviesCategoryRoute
+  '/movies/': typeof MoviesIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | ''
+  fullPaths: '/' | '' | '/movie/$id' | '/movies/$category' | '/movies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | ''
-  id: '__root__' | '/' | '/_layout'
+  to: '/' | '' | '/movie/$id' | '/movies/$category' | '/movies'
+  id:
+    | '__root__'
+    | '/'
+    | '/_layout'
+    | '/movie/$id'
+    | '/movies/$category'
+    | '/movies/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LayoutRoute: typeof LayoutRoute
+  MovieIdRoute: typeof MovieIdRoute
+  MoviesCategoryRoute: typeof MoviesCategoryRoute
+  MoviesIndexRoute: typeof MoviesIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LayoutRoute: LayoutRoute,
+  MovieIdRoute: MovieIdRoute,
+  MoviesCategoryRoute: MoviesCategoryRoute,
+  MoviesIndexRoute: MoviesIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,7 +159,10 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_layout"
+        "/_layout",
+        "/movie/$id",
+        "/movies/$category",
+        "/movies/"
       ]
     },
     "/": {
@@ -104,6 +170,15 @@ export const routeTree = rootRoute
     },
     "/_layout": {
       "filePath": "_layout.tsx"
+    },
+    "/movie/$id": {
+      "filePath": "movie.$id.tsx"
+    },
+    "/movies/$category": {
+      "filePath": "movies/$category.tsx"
+    },
+    "/movies/": {
+      "filePath": "movies/index.tsx"
     }
   }
 }

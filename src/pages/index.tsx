@@ -1,10 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
-import PopularMovies from '../features/movies'
+import { APP_ROUTES } from '../features/app/routes'
+import Home from '../features/home'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute(APP_ROUTES.HOME)({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <PopularMovies />
+  return <Home />
 }

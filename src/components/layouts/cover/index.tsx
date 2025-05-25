@@ -4,9 +4,10 @@ import styles from './index.module.css'
 const Cover: FunctionComponent<
   PropsWithChildren<{
     className?: string
+    space?: string
   }>
-> = ({ children, className }) => {
-  return <div className={`${styles.cover} ${className}`}>{children}</div>
+> = ({ children, className, space }) => {
+  return <div className={`${styles.cover} ${className} ${space ?? 'p-5'}`}>{children}</div>
 }
 
 export default Cover

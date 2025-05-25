@@ -1,0 +1,49 @@
+@reference '../../../styles/index.css';
+
+.wrapper {
+  .backdrop {
+    @apply absolute top-0 left-0 w-screen z-0 border-2;
+
+    &::before {
+      @apply content-[""] w-full h-[75dvh];
+    }
+    img {
+      @apply relative object-fill;
+    }
+  }
+}
+
+.details {
+  @apply relative z-1;
+
+  .poster {
+    @apply rounded-2xl shadow-lg flex-1 xl:flex-1/12;
+    @apply min-w-[220px] overflow-hidden;
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .info {
+    @apply flex flex-wrap gap-10 flex-1 xl:flex-2;
+  }
+
+  .content {
+    @apply prose dark:prose-invert;
+    @apply min-w-[30%] w-full;
+
+    * {
+      @apply my-1;
+    }
+  }
+
+  .numbers {
+    @apply prose light:prose-invert dark:prose-invert;
+    @apply bg-primary-700 dark:bg-primary-200 h-min p-5 rounded-2xl shadow-lg;
+    @apply max-w-lg;
+
+    * {
+      @apply my-1;
+    }
+  }
+}

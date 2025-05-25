@@ -1,9 +1,5 @@
 @import '../../variables-reference.module.css';
 
 .stack {
-  @apply flex flex-col justify-start;
-}
-
-.stack > * + * {
-  @apply mt-3;
+  @apply flex flex-col;
 }
