@@ -18,7 +18,7 @@ const Movies = () => {
     <Stack className="[view-transition-name:movies]">
       <HeroSection />
 
-      <Cover space="mt-30 px-20">
+      <Cover space="mt-30 px-5 lg:px-10 xl:px-20">
         <Stack>
           <div className="prose dark:prose-invert">
             <Link to={APP_ROUTES.MOVIES}>

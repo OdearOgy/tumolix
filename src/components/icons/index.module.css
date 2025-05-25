@@ -1,16 +1,15 @@
 @import '../variables-reference.module.css';
-.icon {
-  @apply size-4;
 
+.icon {
   &[data-size='large'] {
-    @apply text-6xl;
+    @apply size-6 text-6xl;
   }
 
   &[data-size='medium'] {
-    @apply text-4xl;
+    @apply size-4; text-4xl;
   }
 
   &[data-size='small'] {
-    @apply size-1 text-2xl;
+    @apply size-3 text-2xl;
   }
 }

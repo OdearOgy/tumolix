@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react'
 import type { Movie as MovieDto } from 'tmdb-ts'
-import { Cluster } from '../../../components/layouts'
+import styles from './index.module.css'
 import Movie from './movie'
 
 const PopularMovies: FunctionComponent<{
@@ -17,11 +17,11 @@ const PopularMovies: FunctionComponent<{
     return 'some random error'
   }
   return isSuccess && data?.length ? (
-    <Cluster className="gap-10">
+    <div className={styles.list}>
       {data?.map((movie) => {
         return <Movie key={movie.id} data={movie} />
       })}
-    </Cluster>
+    </div>
   ) : (
     'no data found'
   )

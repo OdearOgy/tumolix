@@ -12,7 +12,7 @@ function RouteComponent() {
   const { data, isError, isPending, isSuccess } = useMoviesQuery('')
 
   return (
-    <Cover space="mt-30 px-20">
+    <Cover space="mt-30 px-5 lg:px-10 xl:px-20">
       <MovieList
         data={data?.results}
         isError={isError}
