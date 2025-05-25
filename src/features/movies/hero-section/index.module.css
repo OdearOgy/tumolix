@@ -7,6 +7,28 @@
   @apply relative w-full h-[85dvh] overflow-hidden;
 }
 
+.skeleton {
+  @apply max-w-full bg-primary-900 dark:bg-primary-100;
+  @apply justify-start items-end animate-pulse;
+  @apply px-5 lg:px-10 xl:px-20;
+
+  .skeletonContent {
+    @apply rounded prose prose-invert h-80 w-200 space-y-15;
+
+    & > div {
+      @apply rounded bg-neutral-400 animate-pulse;
+    }
+
+    & > :first-child {
+      @apply h-12  w-6/7;
+    }
+
+    & > :last-child {
+      @apply h-30 w-full;
+    }
+  }
+}
+
 .hero {
   @apply relative w-full h-[85dvh] overflow-hidden;
 

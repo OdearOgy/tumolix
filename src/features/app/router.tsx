@@ -8,20 +8,20 @@ export const router = createRouter({
   defaultPreload: 'intent',
   notFoundMode: 'root',
   // TODO: Add bounce or ginnie transition
-  defaultViewTransition: {
-    types: ({ fromLocation, toLocation }) => {
-      let direction = 'none'
+  // defaultViewTransition: {
+  //   types: ({ fromLocation, toLocation }) => {
+  //     let direction = 'none'
 
-      if (fromLocation) {
-        const fromIndex = fromLocation.state.__TSR_index
-        const toIndex = toLocation.state.__TSR_index
+  //     if (fromLocation) {
+  //       const fromIndex = fromLocation.state.__TSR_index
+  //       const toIndex = toLocation.state.__TSR_index
 
-        direction = toIndex > fromIndex ? 'left' : 'right'
-      }
+  //       direction = toIndex > fromIndex ? 'left' : 'right'
+  //     }
 
-      return [`slide-${direction}`]
-    },
-  },
+  //     return [`slide-${direction}`]
+  //   },
+  // },
 })
 
 // unit test?

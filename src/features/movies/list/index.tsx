@@ -1,7 +1,8 @@
-import type { FunctionComponent } from 'react'
+import { type FunctionComponent } from 'react'
 import type { Movie as MovieDto } from 'tmdb-ts'
 import styles from './index.module.css'
 import Movie from './movie'
+import Skeleton from './skeleton'
 
 const PopularMovies: FunctionComponent<{
   data?: MovieDto[]
@@ -10,12 +11,13 @@ const PopularMovies: FunctionComponent<{
   isSuccess: boolean
 }> = ({ data, isPending, isError, isSuccess }) => {
   if (isPending) {
-    return 'loading ...'
+    return <Skeleton />
   }
 
   if (isError) {
     return 'some random error'
   }
+
   return isSuccess && data?.length ? (
     <div className={styles.list}>
       {data?.map((movie) => {

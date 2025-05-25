@@ -7,15 +7,19 @@
   @apply h-min;
 }
 
+.skeleton {
+  @apply bg-primary-600 dark:bg-primary-400 pointer-events-none;
+}
+
 .movie {
-  @apply rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300;
+  @apply aspect-8/15 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300;
   @apply outline outline-neutral-950/0 outline-offset-8;
   @apply hover:outline-neutral-900;
   @apply transition cursor-pointer;
   @apply bg-neutral-900 dark:bg-primary-50;
 
   .poster {
-    @apply rounded-2xl overflow-hidden;
+    @apply rounded-2xl overflow-hidden min-h-4/5;
 
     img {
       @apply w-full h-full object-cover;
