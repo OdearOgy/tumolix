@@ -1,6 +1,6 @@
 import { Button as AccessibleButton } from '@headlessui/react'
+import { ArrowPathIcon } from '@heroicons/react/24/solid'
 import type { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
-import { ArrowPathIcon } from '../icons'
 import { Cluster } from '../layouts'
 import type { Size, Variant } from '../types'
 import styles from './index.module.css'
@@ -14,6 +14,7 @@ const Button: FunctionComponent<
     prefixIcon?: ReactNode
     size?: Size
     variant?: Variant
+    pill?: boolean
   }>
 > = ({
   children,
@@ -24,8 +25,9 @@ const Button: FunctionComponent<
   prefixIcon,
   size = 'medium',
   variant = 'neutral',
+  pill,
 }) => {
-  const btnCls = `${styles.btn} ${styles[variant]} ${className}`
+  const btnCls = `${styles.btn} ${styles[variant]} ${className} ${pill ? 'rounded-full' : 'rounded'}`
 
   return (
     <AccessibleButton

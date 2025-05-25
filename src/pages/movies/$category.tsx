@@ -1,4 +1,4 @@
-import { createFileRoute, useParams } from '@tanstack/react-router'
+import { createFileRoute, Navigate, useParams } from '@tanstack/react-router'
 import Movies from '../../features/movies'
 import { MovieCategory } from '../../features/movies/_queries/models'
 
@@ -12,7 +12,7 @@ function RouteComponent() {
   const { category } = useParams({ from: '/movies/$category' })
 
   if (!allowedCategories.includes(category as MovieCategory)) {
-    throw new Error(`Invalid category: ${category}`)
+    return <Navigate to="/movies" search="" />
   }
 
   return <Movies category={category as MovieCategory} />

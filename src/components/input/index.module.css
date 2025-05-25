@@ -1,7 +1,7 @@
 @import '../variables-reference.module.css';
 
 .field {
-  @apply relative w-lg;
+  @apply relative w-auto 2xl:w-lg;
   @apply text-neutral-800 dark:text-neutral-200;
 
   .label {

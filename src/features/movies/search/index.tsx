@@ -1,54 +1,60 @@
-import {
-  useCallback,
-  useRef,
-  useState,
-  type Dispatch,
-  type FunctionComponent,
-  type SetStateAction,
-} from 'react'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
+import { useNavigate, useRouterState } from '@tanstack/react-router'
+import { useCallback, useEffect, useState, type FunctionComponent } from 'react'
 import { Input } from '../../../components'
-import { SearchIcon } from '../../../components/icons'
+import { useDebounce } from '../../../components/input/use-debounce'
 
-const Search: FunctionComponent<{
-  search: string
-  setSearch: Dispatch<SetStateAction<string>>
-}> = ({ search, setSearch }) => {
-  const formRef = useRef<HTMLFormElement | null>(null)
-  const [s, setS] = useState(search)
+const Search: FunctionComponent = () => {
+  const navigate = useNavigate()
+  const location = useRouterState({ select: (s) => s.location })
+  const search = new URLSearchParams(location.search).get('q') ?? ''
+  const [value, setValue] = useState(search ?? '')
 
-  const handleSubmit = useCallback(() => {
-    setSearch(s)
-    console.log(s)
-    formRef.current?.requestSubmit()
-  }, [s, setSearch])
+  const debouncedValue = useDebounce(value, 200)
 
-  const handleReset = useCallback(() => {
-    setSearch('')
-    formRef.current?.reset()
-  }, [setSearch])
+  const handleSubmit = useCallback(
+    (search: string) => {
+      navigate({
+        to: '/movies',
+        search: {
+          q: search,
+        },
+        replace: false,
+      })
+    },
+    [navigate]
+  )
+
+  useEffect(() => {
+    if (!search && !debouncedValue) {
+      return
+    }
+    // handleSubmit(debouncedValue)
+    // if (location.pathname !== '/movies') return
+
+    handleSubmit(debouncedValue)
+  }, [search, debouncedValue, location, handleSubmit])
+
+  // useEffect(() => {
+  //   if (location.pathname !== '/movies') {
+  //     setValue('')
+  //   }
+  // }, [location])
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        e.stopPropagation()
-        handleSubmit()
+        handleSubmit(value)
       }}
-      onReset={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        handleReset()
-      }}
-      ref={formRef}
     >
       <Input
-        name="search"
+        name="q"
         className="size-10"
-        value={s}
-        onChange={(s) => setS(s.toString())}
+        value={value}
+        onChange={setValue}
         placeholder="Search"
-        autoFocus
-        prefixIcon={<SearchIcon size="large" />}
+        prefixIcon={<MagnifyingGlassIcon className="size-6" />}
       />
     </form>
   )

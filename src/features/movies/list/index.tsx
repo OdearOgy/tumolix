@@ -1,5 +1,6 @@
 import { type FunctionComponent } from 'react'
 import type { Movie as MovieDto } from 'tmdb-ts'
+import { NoDataFound } from '../../../components'
 import styles from './index.module.css'
 import Movie from './movie'
 import Skeleton from './skeleton'
@@ -25,7 +26,7 @@ const MovieList: FunctionComponent<{
       })}
     </div>
   ) : (
-    'no data found'
+    <NoDataFound />
   )
 }
 

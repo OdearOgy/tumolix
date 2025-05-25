@@ -1,7 +1,7 @@
 // TODO: Unit test
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { useCallback, useLayoutEffect, useState, type FunctionComponent } from 'react'
 import { Button } from '../../../../components'
-import { MoonIcon, SunIcon } from '../../../../components/icons'
 
 const KEY = 'app::color_scheme'
 

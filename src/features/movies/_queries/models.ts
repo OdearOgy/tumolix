@@ -24,8 +24,7 @@ export interface HeroMovie {
 
 export enum MovieCategory {
   TopRated = 'top-rated',
-  Upcoming = 'upcoming',
-  Default = 'default',
+  Popular = 'popular',
 }
 
 export type MovieCategoryString = keyof typeof MovieCategory

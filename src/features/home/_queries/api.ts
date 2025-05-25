@@ -1,8 +1,10 @@
 import api from '../../api'
 import { VideoSite, VideoType, type HeroMovie } from '../../movies/_queries/models'
 
-export const fetchPopularMovies = async (search: string) => {
-  return api.movies.popular()
+export const fetchPopularMovies = async () => {
+  return api.movies.popular({
+    language: 'en-US',
+  })
 }
 
 export const fetchHeroMovie = async () => {

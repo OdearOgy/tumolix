@@ -1,10 +1,8 @@
 @reference '../../../styles/index.css';
 
 .list {
-  @apply grid;
-  @apply gap-15;
-  @apply grid-cols-[repeat(auto-fit,minmax(clamp(240px,20vw,340px),1fr))];
-  @apply h-min;
+  @apply h-min grid gap-15;
+  @apply grid-cols-[repeat(auto-fill,minmax(clamp(240px,20vw,340px),1fr))];
 }
 
 .skeleton {
@@ -27,9 +25,10 @@
   }
 
   .content {
-    @apply bg-inherit text-neutral-100 dark:text-neutral-900;
+    @apply bg-inherit text-neutral-100 dark:text-neutral-900 h-max;
     @apply max-w-full py-3 px-5 relative z-2;
-    @apply -translate-y-5 transition-none;
+    @apply -translate-y-8 transition-none;
+    @apply space-y-0;
 
     h3 {
       @apply text-2xl;

@@ -4,10 +4,10 @@ import { fetchHeroMovie, fetchPopularMovies } from './api'
 const HOME_KEY = 'HOME'
 const HERO_MOVIE_KEY = 'HERO_MOVIE'
 
-export const useHomeMoviesQuery = (search: string) => {
+export const useHomeMoviesQuery = () => {
   return useQuery({
-    queryKey: [HOME_KEY, search],
-    queryFn: () => fetchPopularMovies(search),
+    queryKey: [HOME_KEY],
+    queryFn: () => fetchPopularMovies(),
   })
 }
 

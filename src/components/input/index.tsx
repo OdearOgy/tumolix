@@ -7,13 +7,13 @@ const Input: FunctionComponent<
   {
     hidden?: boolean
     label?: string
-    name: string
+    name?: string
     onChange?: (s: string) => void
     placeholder?: string
     value: unknown
     className?: string
     prefixIcon?: ReactNode
-  } & InputProps
+  } & Omit<InputProps, 'onChange'>
 > = ({ prefixIcon, label, onChange, value, className, ...props }) => {
   return (
     <Stack className={`${styles.field} ${className}`}>
