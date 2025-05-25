@@ -21,3 +21,11 @@ export interface HeroMovie {
   title: string
   trailer: HeroVideo
 }
+
+export enum MovieCategory {
+  TopRated = 'top-rated',
+  Upcoming = 'upcoming',
+  Default = 'default',
+}
+
+export type MovieCategoryString = keyof typeof MovieCategory

@@ -1,7 +1,7 @@
 @import '../variables-reference.module.css';
 
 .btn {
-  @apply border rounded text-sm py-2 min-h-8 cursor-pointer;
+  @apply border-2 rounded text-sm py-2 min-h-8 cursor-pointer;
   @apply text-neutral-50 dark:text-neutral-950;
 
   &.neutral {
@@ -39,6 +39,10 @@
 
   .prefix {
     @apply size-4;
+  }
+
+  .prefix ~ .body {
+    @apply pl-2;
   }
 
   .body {

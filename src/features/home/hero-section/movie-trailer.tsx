@@ -6,7 +6,7 @@ import {
   YOUTUBE_EMBED_OPTIONS,
   YOUTUBE_EMBED_PREFIX,
 } from '../../../constants'
-import type { HeroMovie } from '../_queries/models'
+import type { HeroMovie } from '../../movies/_queries/models'
 import styles from './index.module.css'
 
 const MovieTrailer: FunctionComponent<{

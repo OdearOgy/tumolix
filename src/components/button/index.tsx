@@ -41,7 +41,7 @@ const Button: FunctionComponent<
           <ArrowPathIcon className="animate-spin" />
         ) : (
           <>
-            <span className={styles.prefix}>{prefixIcon}</span>
+            {prefixIcon && <span className={styles.prefix}>{prefixIcon}</span>}
             {children}
           </>
         )}

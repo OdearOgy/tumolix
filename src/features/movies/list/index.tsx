@@ -4,7 +4,7 @@ import styles from './index.module.css'
 import Movie from './movie'
 import Skeleton from './skeleton'
 
-const PopularMovies: FunctionComponent<{
+const MovieList: FunctionComponent<{
   data?: MovieDto[]
   isError: boolean
   isPending: boolean
@@ -29,4 +29,4 @@ const PopularMovies: FunctionComponent<{
   )
 }
 
-export default PopularMovies
+export default MovieList

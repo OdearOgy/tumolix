@@ -1,34 +1,64 @@
 import { Link } from '@tanstack/react-router'
-import { Cover, Stack } from '../../components/layouts'
-import { APP_ROUTES } from '../app/routes'
-import { useHomeMoviesQuery } from './_queries'
-import HeroSection from './hero-section'
+import type { FunctionComponent } from 'react'
+import { Button } from '../../components'
+import { Cluster, Cover } from '../../components/layouts'
+import { useMoviesQuery } from './_queries'
+import { MovieCategory } from './_queries/models'
 import MovieList from './list'
 
-const PopularMovies = () => {
-  const { data, isError, isPending, isSuccess } = useHomeMoviesQuery('')
+const movieCategoryLabels: Record<MovieCategory, string> = {
+  [MovieCategory.Default]: 'Popular',
+  [MovieCategory.TopRated]: 'Top Rated',
+  [MovieCategory.Upcoming]: 'Upcoming',
+}
 
+const orderedMovieCategories: MovieCategory[] = [
+  MovieCategory.Default,
+  MovieCategory.Upcoming,
+  MovieCategory.TopRated,
+]
+
+const CategoryFilters: FunctionComponent<{
+  category: MovieCategory
+}> = ({ category }) => {
   return (
-    <MovieList data={data?.results} isError={isError} isPending={isPending} isSuccess={isSuccess} />
+    <Cluster space="gap-5 space-y-5">
+      {orderedMovieCategories?.map((c) => {
+        const to = c === MovieCategory.Default ? '/movies' : `/movies/${c}`
+
+        return (
+          <Link
+            to={to}
+            viewTransition={{
+              types: () => {
+                return ['warp']
+              },
+            }}
+          >
+            <Button className="capitalize" variant={c === category ? 'warning' : 'neutral'}>
+              {movieCategoryLabels[c]}
+            </Button>
+          </Link>
+        )
+      })}
+    </Cluster>
   )
 }
 
-const Movies = () => {
+const Movies: FunctionComponent<{
+  category: MovieCategory
+}> = ({ category }) => {
+  const { data, isError, isPending, isSuccess } = useMoviesQuery(category)
   return (
-    <Stack className="[view-transition-name:movies]">
-      <HeroSection />
-
-      <Cover space="mt-30 px-5 lg:px-10 xl:px-20">
-        <Stack>
-          <div className="prose dark:prose-invert">
-            <Link to={APP_ROUTES.MOVIES}>
-              <h2>Popular Movies</h2>
-            </Link>
-          </div>
-          <PopularMovies />
-        </Stack>
-      </Cover>
-    </Stack>
+    <Cover space="mt-30 px-5 lg:px-10 xl:px-20">
+      <CategoryFilters category={category} />
+      <MovieList
+        data={data?.results}
+        isError={isError}
+        isPending={isPending}
+        isSuccess={isSuccess}
+      />
+    </Cover>
   )
 }
 
