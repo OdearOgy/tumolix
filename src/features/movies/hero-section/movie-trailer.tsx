@@ -27,7 +27,7 @@ const MovieTrailer: FunctionComponent<{
           <img src={posterUrl} alt={`${title}'s poster`} loading="eager" />
         </div>
       )}
-      {/* {trailer?.key && (
+      {trailer?.key && (
         <iframe
           src={url}
           className={`${styles.video} ${videoLoaded && styles.loaded}`}
@@ -37,7 +37,7 @@ const MovieTrailer: FunctionComponent<{
           loading="lazy"
           onLoad={() => setVideoLoaded(true)}
         />
-      )} */}
+      )}
 
       <Stack className={styles.footer}>
         <Stack>

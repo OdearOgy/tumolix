@@ -1,27 +1,29 @@
-import { Input as AccessibleInput } from '@headlessui/react'
-import type { FunctionComponent } from 'react'
+import { Input as AccessibleInput, type InputProps } from '@headlessui/react'
+import type { FunctionComponent, ReactNode } from 'react'
 import { Stack } from '../layouts'
 import styles from './index.module.css'
 
-const Input: FunctionComponent<{
-  hidden?: boolean
-  label?: string
-  name: string
-  onChange?: (s: string) => void
-  placeholder?: string
-  value: unknown
-}> = ({ hidden, label, name, onChange, placeholder, value }) => {
+const Input: FunctionComponent<
+  {
+    hidden?: boolean
+    label?: string
+    name: string
+    onChange?: (s: string) => void
+    placeholder?: string
+    value: unknown
+    className?: string
+    prefixIcon?: ReactNode
+  } & InputProps
+> = ({ prefixIcon, label, onChange, value, className, ...props }) => {
   return (
-    <Stack className={styles.field}>
+    <Stack className={`${styles.field} ${className}`}>
       {label ? <label className={styles.label + ' block'}>{label}</label> : null}
-
+      {prefixIcon && <span className={styles.prefixIcon}>{prefixIcon}</span>}
       <AccessibleInput
-        name={name}
+        {...props}
         onChange={(e) => onChange?.(e.target.value)}
         className={styles.input}
         value={value?.toString()}
-        placeholder={placeholder}
-        hidden={hidden}
       />
     </Stack>
   )

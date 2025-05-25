@@ -1,12 +1,12 @@
 import { Link } from '@tanstack/react-router'
-import { useEffect, useRef, useState, type FunctionComponent } from 'react'
+import { useEffect, useRef, useState, type FunctionComponent, type PropsWithChildren } from 'react'
 import { Cluster } from '../../../components/layouts'
 import { APP_ROUTES } from '../routes'
 import ColorSchemeToggler from './color-scheme-toggler'
 import styles from './index.module.css'
 import Logo from './logo'
 
-const Header: FunctionComponent = () => {
+const Header: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLDivElement | null>(null)
 
@@ -35,11 +35,14 @@ const Header: FunctionComponent = () => {
   return (
     <header>
       <div ref={headerRef}></div>
-      <Cluster className={headerCls}>
+      <Cluster className={headerCls} justify="justify-between" align="items-center">
         <Link to={APP_ROUTES.HOME} viewTransition={{ types: ['slide-right'] }}>
           <Logo />
         </Link>
-        <ColorSchemeToggler />
+        <Cluster align="items-center">
+          {children}
+          <ColorSchemeToggler />
+        </Cluster>
       </Cluster>
     </header>
   )

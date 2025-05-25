@@ -1,12 +1,16 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router'
-import { type FunctionComponent } from 'react'
+import { useState, type FunctionComponent } from 'react'
 import { Cover } from '../components/layouts'
 import Header from '../features/app/header'
+import Search from '../features/movies/search'
 
 const Layout: FunctionComponent = () => {
+  const [s, setS] = useState('')
   return (
     <>
-      <Header />
+      <Header>
+        <Search search={s} setSearch={setS} />
+      </Header>
       <Cover space="p-0">
         <Outlet />
       </Cover>
