@@ -6,7 +6,7 @@ import { TMDB_WEBSITE_URL_PREFIX } from '../../../constants'
 import { useMovieTrailersQuery } from '../_queries'
 import Trailer from './trailer'
 
-const Videos: FunctionComponent<{
+const Trailers: FunctionComponent<{
   id: number
 }> = ({ id }) => {
   const { data, isPending, isSuccess } = useMovieTrailersQuery(id)
@@ -35,4 +35,4 @@ const Videos: FunctionComponent<{
   )
 }
 
-export default Videos
+export default Trailers

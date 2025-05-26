@@ -16,7 +16,7 @@ import InfoItem from './_components/info-item'
 import { useMovieDetailsQuery } from './_queries'
 import Cast from './cast'
 import styles from './index.module.css'
-import Trailers from './videos'
+import Trailers from './trailers'
 
 const Genres: FunctionComponent<{
   data: Genre[]
