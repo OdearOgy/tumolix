@@ -61,16 +61,14 @@ const MovieInfo: FunctionComponent<{
 
 const Movie = () => {
   const { id } = useParams({ from: '/movie/$id' })
-  const { data, isPending, isError } = useMovieDetailsQuery(Number(id) || 0)
+  const { data, isPending, isSuccess } = useMovieDetailsQuery(Number(id) || 0)
 
   if (isPending) {
     return <div>loading</div>
   }
-
-  if (isError) {
-    return <div>error</div>
+  if (!isSuccess) {
+    return
   }
-
   const { poster_path, backdrop_path, title, release_date, genres, overview } = data as MovieDetails
 
   const posterUrl = `${TMDB_IMAGE_URL_PREFIX}/${PosterSize.W780}${poster_path}`

@@ -1,5 +1,6 @@
 import type { FunctionComponent } from 'react'
-import { Cover } from '../../components/layouts'
+import { Cluster, Cover } from '../../components/layouts'
+import Spiral from '../../components/spiral'
 import { useMoviesQuery } from './_queries'
 import { MovieCategory } from './_queries/models'
 import Categories from './category'
@@ -10,7 +11,7 @@ import useInfiniteScroll from './use-infinite-scroll'
 const Movies: FunctionComponent<{
   category: MovieCategory
 }> = ({ category }) => {
-  const { data, isError, isPending, isSuccess, isFetchingNextPage, fetchNextPage, hasNextPage } =
+  const { data, isPending, isSuccess, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useMoviesQuery(category)
 
   useInfiniteScroll({
@@ -25,8 +26,12 @@ const Movies: FunctionComponent<{
     <Cover space="mt-30 px-5 lg:px-10 xl:px-20 space-y-10">
       <Categories active={category && category} />
       <Genres />
-      <MovieList data={movies} isError={isError} isPending={isPending} isSuccess={isSuccess} />
-      {isFetchingNextPage && <p className="text-center mt-4">Loading...</p>}
+      <MovieList data={movies} isPending={isPending} isSuccess={isSuccess} />
+      {isFetchingNextPage && (
+        <Cluster justify="justify-center">
+          <Spiral />
+        </Cluster>
+      )}
     </Cover>
   )
 }

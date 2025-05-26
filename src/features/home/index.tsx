@@ -7,11 +7,9 @@ import { useHomeMoviesQuery } from './_queries'
 import HeroSection from './hero-section'
 
 const List = () => {
-  const { data, isError, isPending, isSuccess } = useHomeMoviesQuery()
+  const { data, isPending, isSuccess } = useHomeMoviesQuery()
 
-  return (
-    <MovieList data={data?.results} isError={isError} isPending={isPending} isSuccess={isSuccess} />
-  )
+  return <MovieList data={data?.results} isPending={isPending} isSuccess={isSuccess} />
 }
 
 const Movies = () => {
@@ -31,6 +29,11 @@ const Movies = () => {
           <List />
         </Stack>
       </Cover>
+      <Cluster justify="justify-center" space="my-20">
+        <Link to="/movies">
+          <Button variant="primary">Show All</Button>
+        </Link>
+      </Cluster>
     </Stack>
   )
 }
