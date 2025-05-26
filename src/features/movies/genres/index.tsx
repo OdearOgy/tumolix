@@ -31,7 +31,7 @@ const Genres: FunctionComponent = () => {
           //     // genres: selectedGenres.join(','),
           //   })}
           // >
-          <Button key={genre.id} size="small" pill>
+          <Button key={genre.id} size="medium" pill>
             {genre.name}
           </Button>
           // </Link>

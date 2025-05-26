@@ -22,7 +22,9 @@ const Movie: FunctionComponent<{
           <CustomImage src={posterUrl} loading="lazy" alt={title} />
         </div>
         <Stack className={styles.content} space="gap-1" align="justify-end">
-          <h3>{title}</h3>
+          <h3 title={title} className="overflow-ellipsis whitespace-nowrap overflow-hidden">
+            {title}
+          </h3>
           {release_date && <p>{date}</p>}
 
           <Cluster align="items-center" space="gap-1">

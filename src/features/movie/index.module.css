@@ -1,0 +1,53 @@
+@reference '../../styles/index.css';
+
+.wrapper {
+  .backdrop {
+    @apply absolute inset-0 w-auto z-0 h-[70dvh] overflow-hidden;
+    @apply bg-primary-900/80 dark:bg-primary-300/80;
+
+    &::after {
+      @apply absolute inset-0 content-[""] bg-inherit;
+    }
+    img {
+      @apply relative object-cover w-full h-full;
+    }
+  }
+}
+
+.details {
+  @apply relative z-1 flex-col lg:flex-row;
+
+  .poster {
+    @apply rounded-2xl shadow-lg lg:flex-1/12;
+    @apply min-w-[220px] overflow-hidden;
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .info {
+    @apply flex flex-wrap gap-14 flex-3 md:flex-2;
+  }
+
+  .content {
+    @apply prose light:prose-invert dark:prose-invert;
+    @apply min-w-[30%] w-full;
+
+    * {
+      @apply my-1;
+    }
+    h1 {
+      @apply text-shadow-lg;
+    }
+  }
+
+  .numbers {
+    @apply prose light:prose-invert dark:prose-invert;
+    @apply bg-primary-700 dark:bg-primary-200 h-min p-5 rounded-2xl shadow-lg;
+    @apply max-w-lg;
+
+    * {
+      @apply my-1;
+    }
+  }
+}
