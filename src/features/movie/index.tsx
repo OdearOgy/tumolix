@@ -7,7 +7,7 @@ import {
 import { useParams } from '@tanstack/react-router'
 import type { FunctionComponent } from 'react'
 import { BackdropSize, PosterSize, type Genre, type MovieDetails } from 'tmdb-ts'
-import { Button, CustomImage } from '../../components'
+import { Button, CustomImage, DefaultLoader } from '../../components'
 import { Cluster, Stack } from '../../components/layouts'
 import { TMDB_IMAGE_URL_PREFIX } from '../../constants'
 import { formatCurrency } from '../../utils/format-currency'
@@ -16,7 +16,7 @@ import InfoItem from './_components/info-item'
 import { useMovieDetailsQuery } from './_queries'
 import Cast from './cast'
 import styles from './index.module.css'
-import Videos from './Videos'
+import Videos from './videos'
 
 const Genres: FunctionComponent<{
   data: Genre[]
@@ -64,7 +64,7 @@ const Movie = () => {
   const { data, isPending, isSuccess } = useMovieDetailsQuery(Number(id) || 0)
 
   if (isPending) {
-    return <div>loading</div>
+    return <DefaultLoader />
   }
   if (!isSuccess) {
     return
