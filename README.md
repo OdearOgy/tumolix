@@ -21,7 +21,7 @@ src/
 │   │   ├── _components/     # Feature level components
 │   │   ├── _queries/        # Tanstack queries and api methods
 │   │   ├── cast/            # movie cast
-│   │   └── videos/          # movie trailers
+│   │   └── trailers/          # movie trailers
 │   │
 │   └── movies/
 │       ├── _queries/        # Tanstack queries and api methods
