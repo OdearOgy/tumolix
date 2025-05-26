@@ -9,7 +9,7 @@ export const router = createRouter({
   scrollRestoration: true,
   defaultPreload: 'intent',
   notFoundMode: 'root',
-  defaultViewTransition: { types: ['slide-left'] },
+  defaultViewTransition: { types: ['fade'] },
 })
 
 declare module '@tanstack/react-router' {
