@@ -1,6 +1,6 @@
 import { createRootRoute } from '@tanstack/react-router'
 import Layout from './_layout'
-// import NotFound from './not-found'
+import { RouteComponent as NotFound } from './not-found'
 
 function RootComponent() {
   return <Layout />
@@ -9,5 +9,5 @@ function RootComponent() {
 export const Route = createRootRoute({
   component: RootComponent,
 
-  // notFoundComponent: NotFound,
+  notFoundComponent: NotFound,
 })

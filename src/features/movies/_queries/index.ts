@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { useRouterState } from '@tanstack/react-router'
-import { fetchGenres, fetchMovies, fetchRandomMovies, fetchSearch } from './api'
+import { fetchGenres, fetchMovies, fetchSearch } from './api'
 import type { MovieCategory } from './models'
 
 const MOVIES_KEY = 'MOVIES'
 const GENRES_KEY = 'GENRES'
 
-export const useMoviesQuery = (category?: MovieCategory) => {
+export const useMoviesQuery = (category: MovieCategory) => {
   const location = useRouterState({ select: (s) => s.location })
   const search = new URLSearchParams(location.search)
 
@@ -15,8 +15,7 @@ export const useMoviesQuery = (category?: MovieCategory) => {
 
   return useQuery({
     queryKey: [MOVIES_KEY, '/', category, genres, query],
-    queryFn: () =>
-      query ? fetchSearch(query) : !category ? fetchRandomMovies() : fetchMovies(category, genres),
+    queryFn: () => (query ? fetchSearch(query) : fetchMovies(category, genres)),
   })
 }
 

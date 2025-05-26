@@ -7,7 +7,7 @@ import Genres from './genres'
 import MovieList from './list'
 
 const Movies: FunctionComponent<{
-  category?: MovieCategory
+  category: MovieCategory
 }> = ({ category }) => {
   const { data, isError, isPending, isSuccess } = useMoviesQuery(category)
 

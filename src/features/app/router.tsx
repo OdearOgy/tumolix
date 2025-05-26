@@ -1,14 +1,15 @@
 import { createRouter } from '@tanstack/react-router'
 import { routeTree } from '../../__generated__/routeTree.gen'
 
+export const STALE_TIME = 10 * 60 * 1000
+
 export const router = createRouter({
   routeTree,
-  defaultStaleTime: 5000,
+  defaultStaleTime: 10 * 60 * 1000,
   scrollRestoration: true,
   defaultPreload: 'intent',
   notFoundMode: 'root',
-  // TODO: Add bounce or ginnie transition
-  // defaultViewTransition: { types: ['slide-left'] },
+  defaultViewTransition: { types: ['slide-left'] },
 })
 
 declare module '@tanstack/react-router' {
