@@ -1,13 +1,19 @@
-import { ClockIcon, GlobeAmericasIcon, StarIcon } from '@heroicons/react/24/solid'
+import {
+  ClockIcon,
+  CurrencyDollarIcon,
+  GlobeAmericasIcon,
+  StarIcon,
+} from '@heroicons/react/24/solid'
 import { useParams } from '@tanstack/react-router'
-import { PosterSize, type MovieDetails } from 'tmdb-ts'
-import { CustomImage } from '../../../components'
+import { BackdropSize, PosterSize, type MovieDetails } from 'tmdb-ts'
+import { Button, CustomImage } from '../../../components'
 import { Cluster, Stack } from '../../../components/layouts'
 import { TMDB_IMAGE_URL_PREFIX } from '../../../constants'
 import { formatCurrency } from '../../../utils/format-currency'
 import { formatRuntime } from '../../../utils/format-runtime'
 import { useMovieDetailsQuery } from '../_queries'
 import InfoItem from '../components/info-item'
+import Cast from './cast'
 import styles from './index.module.css'
 
 const Details = () => {
@@ -25,11 +31,11 @@ const Details = () => {
 
   const {
     poster_path,
-    // backdrop_path,
+    backdrop_path,
     title,
     release_date,
     vote_average,
-    // genres,
+    genres,
     runtime,
     overview,
     original_language,
@@ -39,16 +45,16 @@ const Details = () => {
   } = data as MovieDetails
 
   const posterUrl = `${TMDB_IMAGE_URL_PREFIX}/${PosterSize.W780}${poster_path}`
-  // const backdropUrl = `${TMDB_IMAGE_URL_PREFIX}/${BackdropSize.ORIGINAL}${backdrop_path}`
+  const backdropUrl = `${TMDB_IMAGE_URL_PREFIX}/${BackdropSize.ORIGINAL}${backdrop_path}`
 
   const language =
     spoken_languages.find((l) => l.iso_639_1.includes(original_language))?.name ?? 'English'
 
   return (
     <div className={styles.wrapper}>
-      {/* <div className={styles.backdrop}>
+      <div className={styles.backdrop}>
         <CustomImage src={backdropUrl} loading="lazy" />
-      </div> */}
+      </div>
 
       <Cluster className={styles.details} space="gap-10">
         <div className={styles.poster}>
@@ -59,6 +65,15 @@ const Details = () => {
           <Stack space="0" className={styles.content}>
             <h1>{title}</h1>
             <p>Released: {release_date}</p>
+            <Cluster>
+              {genres?.map((g) => {
+                return (
+                  <Button className="pointer-events-none" key={g.id} size="small" pill disabled>
+                    {g.name}
+                  </Button>
+                )
+              })}
+            </Cluster>
             <p>{overview}</p>
           </Stack>
 
@@ -70,9 +85,16 @@ const Details = () => {
             </Stack>
 
             <Stack className={styles.numbers}>
-              <InfoItem label={`Budget: ${formatCurrency(budget)}`} />
-              <InfoItem label={`Box Office: ${formatCurrency(revenue)}`} />
+              <InfoItem icon={<CurrencyDollarIcon />} label={`Budget: ${formatCurrency(budget)}`} />
+              <InfoItem
+                icon={<CurrencyDollarIcon />}
+                label={`Box Office: ${formatCurrency(revenue)}`}
+              />
             </Stack>
+          </Stack>
+
+          <Stack className={styles.content}>
+            <Cast />
           </Stack>
         </div>
       </Cluster>

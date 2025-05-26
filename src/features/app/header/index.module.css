@@ -3,7 +3,7 @@
 .header {
   @apply fixed top-0 z-50 w-full gap-10 py-4 px-5 lg:px-10 xl:px-20;
   @apply bg-primary-700/50 dark:bg-primary-300/50 text-neutral-50 dark:text-neutral-950;
-  @apply transition-colors shadow;
+  @apply transition-colors shadow-lg;
 
   &.scrolled {
     @apply bg-primary-700 dark:bg-primary-200;

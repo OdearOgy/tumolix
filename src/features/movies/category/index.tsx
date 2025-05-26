@@ -20,16 +20,12 @@ const Categories: FunctionComponent<{
         const to = `/movies/${c}`
 
         return (
-          <Link
-            to={to}
-            key={c}
-            // viewTransition={{
-            //   types: () => {
-            //     return ['warp']
-            //   },
-            // }}
-          >
-            <Button className="capitalize" variant={c === active ? 'warning' : 'neutral'}>
+          <Link to={to} key={c}>
+            <Button
+              size="large"
+              className="capitalize"
+              variant={c === active ? 'primary' : 'neutral'}
+            >
               {movieCategoryLabels[c]}
             </Button>
           </Link>

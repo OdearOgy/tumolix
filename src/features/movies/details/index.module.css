@@ -2,22 +2,23 @@
 
 .wrapper {
   .backdrop {
-    @apply absolute top-0 left-0 w-screen z-0 border-2;
+    @apply absolute inset-0 w-auto z-0 h-[70dvh] overflow-hidden;
+    @apply bg-primary-900/80 dark:bg-primary-300/80;
 
-    &::before {
-      @apply content-[""] w-full h-[75dvh];
+    &::after {
+      @apply absolute inset-0 content-[""] bg-inherit;
     }
     img {
-      @apply relative object-fill;
+      @apply relative object-cover w-full h-full;
     }
   }
 }
 
 .details {
-  @apply relative z-1;
+  @apply relative z-1 flex-col lg:flex-row;
 
   .poster {
-    @apply rounded-2xl shadow-lg flex-1 xl:flex-1/12;
+    @apply rounded-2xl shadow-lg lg:flex-1/12;
     @apply min-w-[220px] overflow-hidden;
     img {
       @apply w-full h-full object-cover;
@@ -25,15 +26,18 @@
   }
 
   .info {
-    @apply flex flex-wrap gap-10 flex-1 xl:flex-2;
+    @apply flex flex-wrap gap-14 flex-3 md:flex-2;
   }
 
   .content {
-    @apply prose dark:prose-invert;
+    @apply prose light:prose-invert dark:prose-invert;
     @apply min-w-[30%] w-full;
 
     * {
       @apply my-1;
+    }
+    h1 {
+      @apply text-shadow-lg;
     }
   }
 
