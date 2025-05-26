@@ -10,17 +10,18 @@
   - [*] Congigure tanstack-query + TMDB API
     - [*] Configure api caching and revalidation
   - [*] Install headless UI and configure reuasable components
-- [ ] Create app UI
-  - [ ] create home page
-    - [ ] search bar
+- [*] Create app UI
+  - [*] create home page
+    - [*] search bar
     - [*] popular movies section
-    - [ ] genre filter (dropdown/typeahead)
+    - [*] genre filter (dropdown/typeahead)
   - [ ] list page
+    - [*] only infinite scroll with images loading lazy
     - [ ] list virtualization + reuasable feature for favorites and search
-  - [ ] create details page
-    - [ ] implement trailer section
-    - [ ] implement cast section
-  - [ ] Add favorites functionality
+  - [*] create details page
+    - [*] implement trailer section
+    - [*] implement cast section
+  - [?] Add favorites functionality
     - [ ] favorites button + page
     - [ ] use index db to store info
-- [ ] Add additional unit tests
+- [?] Add additional unit tests
