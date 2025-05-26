@@ -38,13 +38,16 @@
     }
     h1 {
       @apply text-shadow-lg;
+
+      & ~ * {
+        @apply text-shadow-md;
+      }
     }
   }
 
-  .numbers {
+  .container {
     @apply prose light:prose-invert dark:prose-invert;
     @apply bg-primary-700 dark:bg-primary-200 h-min p-5 rounded-2xl shadow-lg;
-    @apply max-w-lg;
 
     * {
       @apply my-1;
