@@ -6,19 +6,18 @@ import {
 } from '@heroicons/react/24/solid'
 import { useParams } from '@tanstack/react-router'
 import { BackdropSize, PosterSize, type MovieDetails } from 'tmdb-ts'
-import { Button, CustomImage } from '../../../components'
-import { Cluster, Stack } from '../../../components/layouts'
-import { TMDB_IMAGE_URL_PREFIX } from '../../../constants'
-import { formatCurrency } from '../../../utils/format-currency'
-import { formatRuntime } from '../../../utils/format-runtime'
-import { useMovieDetailsQuery } from '../_queries'
-import InfoItem from '../components/info-item'
+import { Button, CustomImage } from '../../components'
+import { Cluster, Stack } from '../../components/layouts'
+import { TMDB_IMAGE_URL_PREFIX } from '../../constants'
+import { formatCurrency } from '../../utils/format-currency'
+import { formatRuntime } from '../../utils/format-runtime'
+import InfoItem from './_components/info-item'
+import { useMovieDetailsQuery } from './_queries'
 import Cast from './cast'
 import styles from './index.module.css'
 
-const Details = () => {
+const Movie = () => {
   const { id } = useParams({ from: '/movie/$id' })
-
   const { data, isPending, isError } = useMovieDetailsQuery(Number(id) || 0)
 
   if (isPending) {
@@ -101,4 +100,4 @@ const Details = () => {
     </div>
   )
 }
-export default Details
+export default Movie

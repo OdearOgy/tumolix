@@ -1,4 +1,4 @@
-import { Cluster } from '../../../../components/layouts'
+import { Cluster } from '../../../components/layouts'
 
 const Cast = () => {
   return <Cluster>ola</Cluster>

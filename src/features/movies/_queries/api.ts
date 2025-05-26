@@ -1,4 +1,4 @@
-import type { MovieDetails, MovieQueryOptions } from 'tmdb-ts'
+import type { MovieQueryOptions } from 'tmdb-ts'
 import type { MovieSearchOptions } from 'tmdb-ts/dist/endpoints'
 import api from '../../api'
 import { MovieCategory } from './models'
@@ -43,10 +43,4 @@ export const fetchRandomMovies = async () => {
   return api.movies.similar(MI_ID, {
     language: 'en-US',
   })
-}
-
-export const fetchMovieDetails = async (id: number) => {
-  const data = await api.movies.details(id)
-
-  return data as MovieDetails
 }
