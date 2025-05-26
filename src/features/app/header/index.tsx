@@ -36,7 +36,7 @@ const Header: FunctionComponent<PropsWithChildren> = ({ children }) => {
     <header>
       <div ref={headerRef}></div>
       <Cluster className={headerCls} justify="justify-between" align="items-center">
-        <Link to={APP_ROUTES.HOME} replace={true}>
+        <Link to={APP_ROUTES.HOME} replace={true} viewTransition={{ types: ['slide-right'] }}>
           <Logo />
         </Link>
         <Cluster align="items-center">

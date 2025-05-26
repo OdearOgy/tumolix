@@ -1,45 +1,45 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-import { useNavigate, useRouterState } from '@tanstack/react-router'
-import { useCallback, useEffect, useState, type FunctionComponent } from 'react'
+import { useNavigate } from '@tanstack/react-router'
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type Dispatch,
+  type FunctionComponent,
+  type SetStateAction,
+} from 'react'
 import { Input } from '../../../components'
 import { useDebounce } from '../../../components/input/use-debounce'
 
-const Search: FunctionComponent = () => {
+const Search: FunctionComponent<{
+  search: string
+  setSearch: Dispatch<SetStateAction<string>>
+}> = ({ search, setSearch }) => {
   const navigate = useNavigate()
-  const location = useRouterState({ select: (s) => s.location })
-  const search = new URLSearchParams(location.search).get('q') ?? ''
-  const [value, setValue] = useState(search ?? '')
-
-  const debouncedValue = useDebounce(value, 200)
+  const [value, setValue] = useState('')
+  const debouncedValue = useDebounce(value, 700)
 
   const handleSubmit = useCallback(
-    (search: string) => {
+    (q: string) => {
       navigate({
         to: '/movies',
         search: {
-          q: search,
+          q: q,
         },
         replace: false,
       })
+
+      setSearch(q)
     },
-    [navigate]
+    [navigate, setSearch]
   )
 
   useEffect(() => {
     if (!search && !debouncedValue) {
       return
     }
-    // handleSubmit(debouncedValue)
-    // if (location.pathname !== '/movies') return
-
     handleSubmit(debouncedValue)
-  }, [search, debouncedValue, location, handleSubmit])
-
-  // useEffect(() => {
-  //   if (location.pathname !== '/movies') {
-  //     setValue('')
-  //   }
-  // }, [location])
+  }, [search, debouncedValue, handleSubmit])
 
   return (
     <form

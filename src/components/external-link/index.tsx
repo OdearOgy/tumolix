@@ -7,7 +7,7 @@ const ExternalLink: FunctionComponent<
     href: string
   }>
 > = ({ href, children }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" className="w-max">
+  <a href={href} target="_blank" rel="noopener noreferrer" className="w-max underline">
     <Cluster align="items-center" space="gap-2">
       <span>
         <ArrowTopRightOnSquareIcon className="size-4" />

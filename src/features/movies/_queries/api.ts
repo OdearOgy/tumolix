@@ -1,5 +1,4 @@
 import type { MovieQueryOptions } from 'tmdb-ts'
-import type { MovieSearchOptions } from 'tmdb-ts/dist/endpoints'
 import api from '../../api'
 import { MovieCategory } from './models'
 
@@ -31,10 +30,11 @@ export const fetchGenres = async () => {
   return data.genres
 }
 
-export const fetchSearch = async (search: string) => {
+export const fetchSearch = async (query: string, page: number) => {
   return api.search.movies({
-    query: search,
-  } as MovieSearchOptions)
+    query,
+    page,
+  })
 }
 
 export const fetchRandomMovies = async () => {
