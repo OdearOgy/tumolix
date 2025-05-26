@@ -1,6 +1,6 @@
 import { Button as AccessibleButton } from '@headlessui/react'
 import { ArrowPathIcon } from '@heroicons/react/24/solid'
-import type { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
+import type { FunctionComponent, MouseEventHandler, PropsWithChildren, ReactNode } from 'react'
 import { Cluster } from '../layouts'
 import type { Size, Variant } from '../types'
 import styles from './index.module.css'
@@ -10,7 +10,7 @@ const Button: FunctionComponent<
     className?: string
     disabled?: boolean
     loading?: boolean
-    onClick?: () => void
+    onClick?: MouseEventHandler<HTMLButtonElement> | undefined
     prefixIcon?: ReactNode
     size?: Size
     variant?: Variant

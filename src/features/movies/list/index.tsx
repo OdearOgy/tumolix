@@ -11,6 +11,7 @@ const MovieList: FunctionComponent<{
   isPending: boolean
   isSuccess: boolean
 }> = ({ data, isPending, isError, isSuccess }) => {
+  console.log(data)
   if (isPending) {
     return <Skeleton />
   }
