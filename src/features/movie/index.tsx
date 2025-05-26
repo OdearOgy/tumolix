@@ -93,7 +93,7 @@ const Movie = () => {
           </Stack>
 
           <Stack className={styles.content}>
-            <Cast />
+            <Cast id={Number(id)} />
           </Stack>
         </div>
       </Cluster>

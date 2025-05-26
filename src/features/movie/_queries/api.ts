@@ -6,3 +6,8 @@ export const fetchMovieDetails = async (id: number) => {
 
   return data as MovieDetails
 }
+
+export const fetchMovieCast = async (id: number) => {
+  const data = await api.movies.credits(id)
+  return data.cast.slice(0, 5)
+}
