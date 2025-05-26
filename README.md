@@ -8,6 +8,15 @@ Simple movie db app with React + Ts (tailwind, tanstack - router, query)
 It allows to search and filter for movies using the genre and category filters.
 You can then explore each movie in details - view the cast, box office info and some trailers.
 
+
+## Attention
+Some of features may not work if you're using older safari or firefox
+
+I'm css-nesting and native view-transitions and there are support issues with safari and firefox
+
+So please use chromium based browser for testing.
+
+
 ## Project Structure
 
 ```
