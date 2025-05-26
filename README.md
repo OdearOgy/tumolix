@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dfd62f48-8b03-4cb7-8595-c094c796a761/deploy-status)](https://app.netlify.com/projects/tumolix/deploys)
 
+http://tumolix.netlify.app/
+
 # tumolix
 
 Simple movie db app with React + Ts (tailwind, tanstack - router, query)
