@@ -16,7 +16,7 @@ import InfoItem from './_components/info-item'
 import { useMovieDetailsQuery } from './_queries'
 import Cast from './cast'
 import styles from './index.module.css'
-import Videos from './videos'
+import Trailers from './videos'
 
 const Genres: FunctionComponent<{
   data: Genre[]
@@ -97,7 +97,7 @@ const Movie = () => {
           </div>
         </Cluster>
 
-        <Videos id={Number(id)} />
+        <Trailers id={Number(id)} />
       </Stack>
     </div>
   )
